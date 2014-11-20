@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选中分享</title>
+<style>
+ #p1{width:600px; height:300px; text-align:center; margin:0 auto;}
+ #div1{position:absolute; display:none;}
+</style>
+<script language="javascript">
+ window.onload = function(){
+	  function selectText(){
+		if(document.selection){
+			return document.selection.createRange().text;
+			}else{
+				return window.getSelection().toString();
+				}  
+		  }
+        var oP = document.getElementById('p1');
+		var oDiv = document.getElementById('div1');
+		oP.onmouseup =function(ev){
+			var ev = ev || window.event;
+			var left= ev.clientX;
+			var top =ev.clientY;
+			if(selectText().length > 10){
+				
+				setTimeout(function(){
+				oDiv.style.display = "block";
+				oDiv.style.left = left + 'px';
+				oDiv.style.top = top +'px' ;
+					},100)
+				
+				
+				}else{
+					oDiv.style.display ='none';}
+			};
+			oP.onclick = function(ev){
+				var ev =ev || window.event;
+				ev.cancelBubble =true;
+				};
+			document.onclick = function(){
+				oDiv.style.display = 'none';
+				
+				};
+				oDiv.onclick = function(){
+					window.location.href = 'http://service.weibo.com/share/share.php?searchPic=false&title=' +selectText() +'&url=www.baidu.com'
+					}
+	 };
+</script>
+</head>
+
+<body>
+<p id="p1">这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。这是一个选中分享的js的demo。</p>
+<div id="div1"><img src="logo.png" width="20" height="20" alt="微博"/></div>
+</body>
+</html>
